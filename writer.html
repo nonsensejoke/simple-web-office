@@ -1,0 +1,23 @@
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>Writer</title>
+  <link rel="icon" type="image/png" href="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1c/Fountain_pen_writing_%28literacy%29_%28cropped%29.jpg/250px-Fountain_pen_writing_%28literacy%29_%28cropped%29.jpg">
+
+</head>
+<body contenteditable style="line-height:1.5;font-size:20px" id="editor"></body>
+<script>
+const editor = document.getElementById("editor");
+
+// 加载之前保存内容
+if (localStorage.getItem("savedText")) {
+  editor.innerHTML = localStorage.getItem("savedText");
+}
+
+// 输入时自动保存
+editor.addEventListener("input", () => {
+  localStorage.setItem("savedText", editor.innerHTML);
+});
+</script>
+</html>
